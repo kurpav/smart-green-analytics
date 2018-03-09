@@ -7,27 +7,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './materal/material.module';
+import { CoreModule } from './core/core.module';
+import { SitesModule } from './sites/sites.module';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './core/containers/app/app.component';
 import { reducers, metaReducers } from './reducers';
 import { AppEffects } from './effects/app.effects';
 import { environment } from '../environments/environment';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
-    ChartsModule
+    ChartsModule,
+    CoreModule,
+    SitesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
