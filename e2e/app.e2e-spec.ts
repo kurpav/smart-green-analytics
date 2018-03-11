@@ -7,8 +7,8 @@ describe('smart-green-analytics App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display main header on sites page', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to sga!');
+    expect(page.getParagraphText()).toEqual('Sites list:');
   });
 });
