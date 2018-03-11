@@ -1,0 +1,50 @@
+h1, h3 {
+  margin-top: 10px;
+  position: relative;
+}
+
+h3 {
+  margin-bottom: 30px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-row {
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 600px) {
+  .mobile-label {
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .mat-cell + .mat-cell {
+    margin-top: 10px;
+  }
+}

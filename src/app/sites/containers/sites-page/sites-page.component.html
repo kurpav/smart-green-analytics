@@ -1,3 +1,4 @@
-<p>
-  sites-page works!
-</p>
+<h1>{{'SITES.TITLE' | translate}}</h1>
+<h3>{{'SITES.CLICK_TO_VIEW' | translate}}</h3>
+<sga-site-preview-list [hidden]="isLoading$ | async" [payload]="sites$ | async"></sga-site-preview-list>
+<mat-spinner [hidden]="!(isLoading$ | async)"></mat-spinner>

@@ -1,3 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/shared/styles/index";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  height: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+h1, h3 {
+  font-family: $font;
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 18px;
+}

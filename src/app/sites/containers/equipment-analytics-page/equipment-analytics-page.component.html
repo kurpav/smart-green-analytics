@@ -1,3 +1,20 @@
-<p>
-  equipment-analytics-page works!
-</p>
+<h1>Site:
+    <span>{{siteName$ | async}}</span>
+    -
+    Equipment:
+    <span>{{equipmentName$ | async}}</span>
+</h1>
+<h3>
+    <span>{{equipmentName$ | async}}</span>
+    : Sensors graph
+</h3>
+<div class="equipment-graph">
+  <canvas baseChart
+    [datasets]="lineChartData$ | async"
+    [labels]="lineChartLabels$ | async"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType">
+  </canvas>
+</div>

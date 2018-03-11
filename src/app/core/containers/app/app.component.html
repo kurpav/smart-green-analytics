@@ -1,2 +1,11 @@
-<sga-navbar></sga-navbar>
-<router-outlet></router-outlet>
+<sga-navbar>
+  <span>SmartGreen analytics</span>
+  <span class="space"></span>
+  <sga-lang (change)="switchLang($event)" [selected]="currentLang"></sga-lang>
+</sga-navbar>
+<div class="component-container" [dir]="'dir' | translate" [class.rtl]="('dir' | translate) === 'rtl'">
+  <a mat-mini-fab color="warn" class="back-link" routerLink="../" [hidden]="router.routerState.snapshot.url === '/sites'">
+      <mat-icon>arrow_back</mat-icon>
+  </a>
+  <router-outlet></router-outlet>
+</div>

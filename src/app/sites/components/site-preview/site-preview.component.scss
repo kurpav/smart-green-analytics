@@ -1,0 +1,14 @@
+:host a {
+  text-decoration: none;
+}
+
+mat-card:hover {
+  box-shadow: 3px 3px 16px -2px rgba(0, 0, 0, .5);
+}
+
+.site-card {
+  mat-card-footer {
+    text-align: center;
+    padding: 0 0 10px;
+  }
+}

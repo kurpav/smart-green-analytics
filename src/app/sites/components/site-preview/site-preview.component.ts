@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ISite } from '../../../shared/models/site';
 
 @Component({
   selector: 'sga-site-preview',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site-preview.component.scss']
 })
 export class SitePreviewComponent implements OnInit {
+  @Input() payload: ISite;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  setDefaultPic() {
+
+  }
 }

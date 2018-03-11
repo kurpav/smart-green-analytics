@@ -1,3 +1,53 @@
-<p>
-  site-details-page works!
-</p>
+<h1>
+   {{'SITE_DETAILS.TITLE' | translate}}
+   <span>{{siteName$ | async}}</span>
+</h1>
+<h3>{{'SITE_DETAILS.EQUIPMENT' | translate}}</h3>
+<div class="mat-elevation-z8">
+    <mat-table #table [dataSource]="equipment$ | async">
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <span class="mobile-label">Name:</span> {{element.equip_name}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastUpdate">
+            <mat-header-cell *matHeaderCellDef> Last Update </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <span class="mobile-label">Last Update:</span> {{element.time | date: 'yyyy-MM-dd'}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="time">
+            <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <span class="mobile-label">Time:</span> {{element.time | date: 'HH:mm:ss'}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="s3Avg">
+            <mat-header-cell *matHeaderCellDef> S3 Avg </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <span class="mobile-label">S3 Avg:</span> {{element.S3avg | number}}&#8451;
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="s4Avg">
+            <mat-header-cell *matHeaderCellDef> S4 Avg </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <span class="mobile-label">S4 Avg:</span> {{element.S4avg | number}}&#8451;
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="tempAvg">
+            <mat-header-cell *matHeaderCellDef> Temp Avg </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <span class="mobile-label">Temp Avg:</span> {{element.TempAvg | number}}&#8451;
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showGraph(row)"></mat-row>
+    </mat-table>
+</div>

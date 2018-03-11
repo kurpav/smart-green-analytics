@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+h1, h3 {
+  margin-top: 10px;
+  position: relative;
+}
+
+h3 {
+  margin-bottom: 30px;
+}
+
+.equipment-graph {
+  flex: 1;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}

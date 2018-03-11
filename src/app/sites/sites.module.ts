@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { MaterialModule } from '../materal/material.module';
 
@@ -16,6 +19,8 @@ import { SitePreviewListComponent } from './components/site-preview-list/site-pr
 import { SitePreviewComponent } from './components/site-preview/site-preview.component';
 import { SiteDetailComponent } from './components/site-detail/site-detail.component';
 import { EquipAnalyticsComponent } from './components/equip-analytics/equip-analytics.component';
+import { SiteExistsGuard } from './guards/site-exists.guard';
+import { EquipmentExistsGuard } from './guards/equipment-exists.guard';
 
 
 @NgModule({
@@ -24,9 +29,24 @@ import { EquipAnalyticsComponent } from './components/equip-analytics/equip-anal
     StoreModule.forFeature('sites', reducers),
     EffectsModule.forFeature([SitesEffects]),
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    ChartsModule,
+    TranslateModule
   ],
-  declarations: [SitesPageComponent, SiteDetailsPageComponent, EquipmentAnalyticsPageComponent, SitePreviewListComponent, SitePreviewComponent, SiteDetailComponent, EquipAnalyticsComponent],
-  providers: [SiteService]
+  declarations: [
+    SitesPageComponent,
+    SiteDetailsPageComponent,
+    EquipmentAnalyticsPageComponent,
+    SitePreviewListComponent,
+    SitePreviewComponent,
+    SiteDetailComponent,
+    EquipAnalyticsComponent
+  ],
+  providers: [
+    SiteService,
+    SiteExistsGuard,
+    EquipmentExistsGuard
+  ]
 })
 export class SitesModule { }

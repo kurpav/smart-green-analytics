@@ -1,3 +1,5 @@
-<p>
-  site-preview-list works!
-</p>
+<mat-grid-list [cols]="cols$ | async" gutterSize="16px">
+  <mat-grid-tile *ngFor="let site of payload">
+    <sga-site-preview [payload]="site"></sga-site-preview>
+  </mat-grid-tile>
+</mat-grid-list>

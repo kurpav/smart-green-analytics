@@ -1,3 +1,8 @@
-<p>
-  site-preview works!
-</p>
+<a [routerLink]="['/sites', payload.site]">
+    <mat-card class="site-card">
+        <img mat-card-image [src]="payload.thumbnail" onerror="this.src='assets/images/default-city.jpg'" alt="Photo of a city">
+        <mat-card-footer>
+            <span>{{payload.site}}</span>
+        </mat-card-footer>
+    </mat-card>
+</a>
