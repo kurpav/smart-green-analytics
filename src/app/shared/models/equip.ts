@@ -8,3 +8,8 @@ export interface IEquip {
   TempAvg: number;
   timeseries?: ITimeserie[];
 }
+
+export interface ISerie {
+  label: string;
+  data: number[];
+}

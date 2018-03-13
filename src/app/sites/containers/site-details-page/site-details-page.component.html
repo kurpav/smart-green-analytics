@@ -8,7 +8,8 @@
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <span class="mobile-label">Name:</span> {{element.equip_name}}
+                <span class="mobile-label">Name:</span>
+                <span class="sga-mat-row-val">{{element.equip_name}}</span>
             </mat-cell>
         </ng-container>
 
@@ -50,4 +51,14 @@
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showGraph(row)"></mat-row>
     </mat-table>
+</div>
+
+<div class="equipment-graph">
+  <canvas baseChart
+    [datasets]="allEquipmentData$ | async"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [legend]="true"
+    chartType="line">
+  </canvas>
 </div>

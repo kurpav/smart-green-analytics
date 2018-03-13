@@ -39,6 +39,10 @@ export const getEquipment = createSelector(getSelectedSite, getSites, (id, sites
   return sites.filter(site => site.site === id).map(site => site.equips).pop();
 });
 
+export const getAllGraphData = createSelector(getEquipment, equipments => {
+  return equipments.map(equipment => ({label: equipment.equip_name, data: equipment.timeseries.map(t => t.temperature) }) );
+});
+
 export const getGraphData = createSelector(getSelectedEquipment, getEquipment, (id, equipments) => {
   return equipments.filter(equipment => equipment.equip_name === id).map(equipment => equipment.timeseries).pop();
 });

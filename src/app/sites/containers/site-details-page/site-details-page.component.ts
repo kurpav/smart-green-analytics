@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
-import { SitesState, getEquipment } from '../../reducers/index';
+import { SitesState, getEquipment, getAllGraphData } from '../../reducers/index';
 import { Observable } from 'rxjs/Observable';
 import { map, tap } from 'rxjs/operators';
-import { IEquip } from '../../../shared/models/equip';
+import { IEquip, ISerie } from '../../../shared/models/equip';
 import * as actions from '../../actions/sites.actions';
 
 @Component({
@@ -18,6 +18,23 @@ export class SiteDetailsPageComponent implements OnInit {
   displayedColumns = ['name', 'lastUpdate', 'time', 's3Avg', 's4Avg', 'tempAvg'];
   equipment$: Observable<IEquip[]>;
 
+  lineChartLabels: number[];
+  allEquipmentData$: Observable<ISerie[]>;
+  lineChartOptions: any = {
+    responsive: true,
+    legend: {
+      display: true,
+      labels: {
+          // filter(li) {
+          //   if (li.datasetIndex > 2) {
+          //     li.hidden = true;
+          //   }
+          //   return true;
+          // }
+      }
+  }
+  };
+
   constructor(
     private store: Store<SitesState>,
     private route: ActivatedRoute,
@@ -25,6 +42,8 @@ export class SiteDetailsPageComponent implements OnInit {
   ) {
     this.siteName$ = this.route.paramMap.pipe(map(params => params.get('siteId')));
     this.equipment$ = this.store.pipe(select(getEquipment));
+    this.allEquipmentData$ = this.store.pipe(select(getAllGraphData));
+    this.lineChartLabels = Array.from({length: 24}, (v, k) => k + 1);
   }
 
   ngOnInit() {
