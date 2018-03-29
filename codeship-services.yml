@@ -1,0 +1,4 @@
+demo:
+  build:
+    image: smart-green-app
+    dockerfile: Dockerfile

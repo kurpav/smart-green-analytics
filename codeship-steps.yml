@@ -1,0 +1,5 @@
+- type: parallel
+  steps:
+  - name: build
+    service: demo
+    command: npm run build
