@@ -3,6 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
 [ ![Codeship Status for kurpav/smart-green-analytics](https://app.codeship.com/projects/96f2dc20-1575-0136-4272-66f65f807b0f/status?branch=master)](https://app.codeship.com/projects/283536)
+[![Run Status](https://api.shippable.com/projects/5abcdc7d4a24a20700a21dad/badge?branch=master)](https://app.shippable.com/github/kurpav/smart-green-analytics)
+[![CircleCI](https://circleci.com/gh/kurpav/smart-green-analytics.svg?style=svg)](https://circleci.com/gh/kurpav/smart-green-analytics)
 
 ## Development server
 
