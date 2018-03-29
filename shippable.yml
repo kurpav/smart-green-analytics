@@ -1,0 +1,12 @@
+language: node_js
+
+branches:
+  only:
+    - master
+
+build:
+  ci:
+    - shippable_retry npm install
+    - npm run build
+  on_success:
+    - echo "Well done! $BRANCH.$BUILD_NUMBER"
